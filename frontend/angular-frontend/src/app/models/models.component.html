@@ -1,0 +1,17 @@
+<div>
+    <h2>Models</h2>
+    <input [(ngModel)]="modelName" placeholder="Model Name" />
+    <button (click)="addModel()">Add Model</button>
+    <br><br>
+    <div>
+      <!-- <a href="/models/all"><button onclick="getModels()">Show Models</button></a> -->
+       <h3>List of Models</h3>
+    <ul>
+      @for(model of models; track model){
+      <li>{{ model.model_name }}</li>
+      
+    }
+    </ul>
+
+  </div>
+  </div>
