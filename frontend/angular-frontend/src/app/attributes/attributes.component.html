@@ -1,0 +1,23 @@
+<div>
+    <h2>Attribute</h2>
+    <input [(ngModel)]="attributeName" placeholder="Attribute Name" />
+</div>
+&nbsp;
+    <div class="col">
+      
+            <select id="entitySelect" [(ngModel)]="selectedEntityId">
+                <option *ngFor="let entity of entities" [value]="entity.entity_id">{{ entity.entity_name }}</option>
+              </select>
+              <!-- <h4 *ngFor="let model of models">{{model.model_name}}</h4> -->
+        </div>
+       
+        &nbsp;
+        <br>
+
+        <div class="col">
+            <select id="attributeTypeSelect" [(ngModel)]="attributeType">
+                <option *ngFor="let types of attributeType">{{types}}</option>
+            </select>
+        </div>
+
+    <button (click)="addAttributes()">Add Attribute</button>

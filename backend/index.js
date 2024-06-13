@@ -81,7 +81,26 @@ app.post('/entities', (req, res) => {
 //     });
 // });
 
-const PORT = 3200;
+// Routes for adding attributes into entities
+app.post('/attributes',(req,res) => {
+    const { attribute_name, attribute_type, entity_id } = req.body;
+    console.log(req.body);
+    const sql = 'INSERT INTO attributes (attribute_name, attribute_type, entity_id) VALUES (?,?,?)';
+    db.query(sql, [attribute_name, attribute_type, entity_id], (err, result) => {
+        if (err) throw err;
+        res.send(result);
+    });
+})
+
+app.get('/entities/all',(req,res) => {
+    const sql = 'SELECT entity_id, entity_name, model_id FROM entities';
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.send(results);
+    });
+})
+
+const PORT = 3200; // nodejs will run on this port number
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

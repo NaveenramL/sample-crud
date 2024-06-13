@@ -22,11 +22,16 @@ export class ApiServiceService {
     return this.http.get(`${this.baseUrl}/entities/${modelId}`);
   }
 
-  // createEntity(entity: any): Observable<any> {
-  //   return this.http.post(`${this.baseUrl}/entities`, entity);
-  // }
+  getAllEntities(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/entities/all`);
+  }
 
   createEntity(entity: any): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/entities`, entity);
   }
+
+  createAttributes(attributes:any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/attributes`, attributes);
+}
+
 }

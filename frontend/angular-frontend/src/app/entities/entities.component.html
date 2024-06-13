@@ -4,16 +4,14 @@
 </div>
 &nbsp;
     <div class="col">
-        <!-- <p>You select your model {{ modelId }}</p>
-        <p>The change Event</p>
-            <select [(ngModel)]="modelId">
-                <option default>1</option>
-               <option>getModels().modelId</option>
-            </select> -->
+      
             <select id="modelSelect" [(ngModel)]="selectedModelId">
                 <option *ngFor="let model of models" [value]="model.model_id">{{ model.model_name }}</option>
               </select>
               <!-- <h4 *ngFor="let model of models">{{model.model_name}}</h4> -->
         </div>
+       
+        &nbsp;
+        <br>
     <button (click)="addEntity()">Add Entity</button>
 
